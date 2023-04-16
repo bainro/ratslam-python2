@@ -28,7 +28,7 @@ import cupy as np
 import itertools
 
 def min_delta(d1, d2, max_):
-    delta = np.min([np.abs(d1-d2), max_-np.abs(d1-d2)])
+    delta = min([np.abs(d1-d2), max_-np.abs(d1-d2)])
     return delta
 
 def clip_rad_180(angle):
