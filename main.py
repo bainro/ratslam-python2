@@ -47,12 +47,13 @@ if __name__ == '__main__':
         _, frame = video.read()
         if frame is None: break
 
+        # wonder if tossing away 2 color channels to get gray would be faster?
         img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         slam.digest(img)
         # ==========================================================
 
-        # Plot each 50 frames
-        if loop%50 != 0:
+        # Plot each 500 frames
+        if loop%500 != 0:
             continue
 
         # PLOT THE CURRENT RESULTS =================================
