@@ -120,11 +120,7 @@ class ViewCells(object):
 
         # TO REMOVE
         if scores:
-            print(type(scores))
-            np.array(scores)
-            np.array(scores)*template.size<VT_MATCH_THRESHOLD
-            print("test end")
-            self.activated_cells = self.cells[np.array(scores)*template.size<VT_MATCH_THRESHOLD]
+            self.activated_cells = self.cells[scores*template.size<VT_MATCH_THRESHOLD]
         # ----
 
         if not self.size or np.min(scores)*template.size > VT_MATCH_THRESHOLD:
