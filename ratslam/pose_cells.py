@@ -50,6 +50,7 @@ class PoseCells(object):
         indices = np.nonzero(self.cells)
 
         for i,j,k in itertools.izip(*indices):
+            print(123)
             print(type(i+wdim))
             print(type(real_np.ix_(xywrap[i:i+wdim], 
                            xywrap[j:j+wdim],
