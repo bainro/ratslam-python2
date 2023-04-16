@@ -55,9 +55,9 @@ class PoseCells(object):
             print(i.shape)
             print(321)
             print(xywrap[int(i):int(i+wdim)])
-            pca_new[real_np.ix_(xywrap[i:i+wdim], 
-                           xywrap[j:j+wdim],
-                           thwrap[k:k+wdim])] += self.cells[i,j,k]*pcw
+            pca_new[real_np.ix_(xywrap[int(i):int(i+wdim)], 
+                           xywrap[int(j):int(j+wdim)],
+                           thwrap[int(k):int(k+wdim)])] += self.cells[i,j,k]*pcw
          
         return pca_new
 
