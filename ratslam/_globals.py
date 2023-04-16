@@ -24,7 +24,7 @@
 # SOFTWARE.
 # =============================================================================
 
-import numpy as np
+import cupy as np
 import itertools
 
 def min_delta(d1, d2, max_):
