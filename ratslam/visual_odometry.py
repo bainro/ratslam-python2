@@ -24,7 +24,7 @@
 # SOFTWARE.
 # =============================================================================
 
-import numpy as np
+import cupy as np
 from ratslam._globals import *
 
 class VisualOdometry(object):
