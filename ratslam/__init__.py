@@ -39,7 +39,7 @@ the use of OpenCV [4]_.
 .. [4] http://opencv.org/
 '''
 
-import numpy as np
+import numpy as cp
 from ratslam._globals import *
 from ratslam.visual_odometry import VisualOdometry
 from ratslam.view_cells import ViewCells
