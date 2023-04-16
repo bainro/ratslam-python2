@@ -24,7 +24,7 @@
 # SOFTWARE.
 # =============================================================================
 
-import numpy as np
+import cupy as np
 import itertools
 from ratslam._globals import *
 
