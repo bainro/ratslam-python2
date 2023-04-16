@@ -24,7 +24,7 @@
 # SOFTWARE.
 # =============================================================================
 
-import cupy as np
+import numpy as np
 from ratslam._globals import *
 
 class Experience(object):
