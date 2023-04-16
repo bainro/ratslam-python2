@@ -52,8 +52,6 @@ if __name__ == '__main__':
     
     loop = 0
     _, frame = video.read()
-    print "np.sum(frame): "
-    print np.sum(frame)
     while True:
         loop += 1
 
