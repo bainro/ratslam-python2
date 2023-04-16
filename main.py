@@ -106,7 +106,7 @@ if __name__ == '__main__':
 
         plot.tight_layout()
         # plot.savefig('C:\\Users\\Renato\\Desktop\\results\\forgif\\' + '%04d.jpg'%loop)
-        # plot.pause(0.1)
+        plot.pause(0.001)
         # ==========================================================
 
     print 'DONE!'
