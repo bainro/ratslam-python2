@@ -39,7 +39,7 @@ the use of OpenCV [4]_.
 .. [4] http://opencv.org/
 '''
 
-import cupy as np
+import numpy as np
 from ratslam._globals import *
 from ratslam.visual_odometry import VisualOdometry
 from ratslam.view_cells import ViewCells
@@ -78,7 +78,7 @@ class Ratslam(object):
 
         x_pc, y_pc, th_pc = self.pose_cells.active
         view_cell = self.view_cells(img, x_pc, y_pc, th_pc)
-        vtrans, vrot = self.visual_odometry(np.array(img))
+        vtrans, vrot = self.visual_odometry(img)
         x_pc, y_pc, th_pc = self.pose_cells(view_cell, vtrans, vrot)
         self.experience_map(view_cell, vtrans, vrot, x_pc, y_pc, th_pc)
 
