@@ -78,11 +78,7 @@ class Ratslam(object):
 
         x_pc, y_pc, th_pc = self.pose_cells.active
         view_cell = self.view_cells(img, x_pc, y_pc, th_pc)
-        print "calling Ratslam.digest()"
-        print "np.sum(img)"
-        print np.sum(img)
         vtrans, vrot = self.visual_odometry(img)
-        print "PROGRESS?"
         x_pc, y_pc, th_pc = self.pose_cells(view_cell, vtrans, vrot)
         self.experience_map(view_cell, vtrans, vrot, x_pc, y_pc, th_pc)
 
