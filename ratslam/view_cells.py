@@ -24,7 +24,7 @@
 # SOFTWARE.
 # =============================================================================
 
-import cupy as np
+import numpy as np
 from ratslam._globals import *
 
 class ViewCell(object):
@@ -120,15 +120,15 @@ class ViewCells(object):
 
         # TO REMOVE
         if scores:
-            self.activated_cells = self.cells[scores*template.size<VT_MATCH_THRESHOLD]
+            self.activated_cells = np.array(self.cells)[np.array(scores)*template.size<VT_MATCH_THRESHOLD]
         # ----
 
-        if not self.size or min(scores)*template.size > VT_MATCH_THRESHOLD:
+        if not self.size or np.min(scores)*template.size > VT_MATCH_THRESHOLD:
             cell = self.create_cell(template, x_pc, y_pc, th_pc)
             self.prev_cell = cell
             return cell
 
-        i = min(range(len(scores)), key=lambda x : scores[x])
+        i = np.argmin(scores)
         cell = self.cells[i]
         cell.decay += VT_ACTIVE_DECAY
 
