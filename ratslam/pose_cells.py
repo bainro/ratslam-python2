@@ -25,6 +25,7 @@
 # =============================================================================
 
 import cupy as np
+import numpy as real_np
 import itertools
 from ratslam._globals import *
 
@@ -49,7 +50,7 @@ class PoseCells(object):
         indices = np.nonzero(self.cells)
 
         for i,j,k in itertools.izip(*indices):
-            pca_new[np.ix_(xywrap[i:i+wdim], 
+            pca_new[real_np.ix_(xywrap[i:i+wdim], 
                            xywrap[j:j+wdim],
                            thwrap[k:k+wdim])] += self.cells[i,j,k]*pcw
          
