@@ -120,7 +120,7 @@ class ViewCells(object):
 
         # TO REMOVE
         if scores:
-            print(self.cells)
+            print(scores)
             np.array(scores)
             np.array(scores)*template.size<VT_MATCH_THRESHOLD
             print("test end")
