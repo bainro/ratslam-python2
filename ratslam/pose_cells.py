@@ -70,14 +70,14 @@ class PoseCells(object):
         z_posecells = np.zeros([PC_DIM_XY, PC_DIM_XY, PC_DIM_TH]) 
       
         zval = self.cells[np.ix_(
-            xywrap[x:x+PC_CELLS_TO_AVG*2], 
-            xywrap[y:y+PC_CELLS_TO_AVG*2], 
-            thwrap[z:z+PC_CELLS_TO_AVG*2]
+            xywrap[int(x):int(x+PC_CELLS_TO_AVG*2)], 
+            xywrap[int(y):int(y+PC_CELLS_TO_AVG*2)], 
+            thwrap[int(z):int(z+PC_CELLS_TO_AVG*2)]
         )]
         z_posecells[np.ix_(
-            PC_AVG_XY_WRAP[x:x+PC_CELLS_TO_AVG*2], 
-            PC_AVG_XY_WRAP[y:y+PC_CELLS_TO_AVG*2], 
-            PC_AVG_TH_WRAP[z:z+PC_CELLS_TO_AVG*2]
+            PC_AVG_XY_WRAP[int(x):int(x+PC_CELLS_TO_AVG*2)], 
+            PC_AVG_XY_WRAP[int(y):int(y+PC_CELLS_TO_AVG*2)], 
+            PC_AVG_TH_WRAP[int(z):int(z+PC_CELLS_TO_AVG*2)]
         )] = zval
         
         # get the sums for each axis
