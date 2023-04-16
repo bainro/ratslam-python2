@@ -24,18 +24,6 @@
 # SOFTWARE.
 # =============================================================================
 
-'''
-This is a full Ratslam implementation in python. This implementation is based 
-on Milford's original implementation [1]_ in matlab, and Christine Lee's python 
-implementation [2]_. The original data movies can also be found in [1]_.
-
-This file is the only dependent of OpenCV, which is used to open and convert 
-the movie files. Thus, you can change only this file to use other media API.
-
-.. [1] https://wiki.qut.edu.au/display/cyphy/RatSLAM+MATLAB
-.. [2] https://github.com/coxlab/ratslam-python
-'''
-
 import cv2
 import numpy as np
 from matplotlib import pyplot as plot
@@ -118,7 +106,7 @@ if __name__ == '__main__':
 
         plot.tight_layout()
         # plot.savefig('C:\\Users\\Renato\\Desktop\\results\\forgif\\' + '%04d.jpg'%loop)
-        plot.pause(0.1)
+        # plot.pause(0.1)
         # ==========================================================
 
     print 'DONE!'
