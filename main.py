@@ -25,7 +25,7 @@
 # =============================================================================
 
 import cv2
-import cupy as np
+import numpy as np
 from matplotlib import pyplot as plot
 import mpl_toolkits.mplot3d.axes3d as p3
 
@@ -52,8 +52,8 @@ if __name__ == '__main__':
         slam.digest(img)
         # ==========================================================
 
-        # Plot each 50 frames
-        if loop%50 != 0:
+        # Plot each 500 frames
+        if loop%500 != 0:
             continue
 
         # PLOT THE CURRENT RESULTS =================================
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
         plot.tight_layout()
         # plot.savefig('C:\\Users\\Renato\\Desktop\\results\\forgif\\' + '%04d.jpg'%loop)
-        plot.pause(0.1)
+        plot.pause(0.001)
         # ==========================================================
 
     print 'DONE!'
