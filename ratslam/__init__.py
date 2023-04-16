@@ -77,8 +77,8 @@ class Ratslam(object):
         '''
 
         x_pc, y_pc, th_pc = self.pose_cells.active
-        view_cell = self.view_cells(img, x_pc, y_pc, th_pc)
-        vtrans, vrot = self.visual_odometry(img)
+        view_cell = self.view_cells(np.ndarray(img), x_pc, y_pc, th_pc)
+        vtrans, vrot = self.visual_odometry(np.ndarray(img))
         x_pc, y_pc, th_pc = self.pose_cells(view_cell, vtrans, vrot)
         self.experience_map(view_cell, vtrans, vrot, x_pc, y_pc, th_pc)
 
