@@ -24,11 +24,11 @@
 # SOFTWARE.
 # =============================================================================
 
-import cupy as np
+import numpy as np
 import itertools
 
 def min_delta(d1, d2, max_):
-    delta = min([np.abs(d1-d2), max_-np.abs(d1-d2)])
+    delta = np.min([np.abs(d1-d2), max_-np.abs(d1-d2)])
     return delta
 
 def clip_rad_180(angle):
@@ -88,14 +88,14 @@ def compare_segments(seg1, seg2, slen):
     for offset in xrange(slen+1):
         e = (cwl-offset)
 
-        cdiff = np.abs(np.array(seg1[offset:cwl] - seg2[:e]))
+        cdiff = np.abs(seg1[offset:cwl] - seg2[:e])
         cdiff = np.sum(cdiff)/e
 
         if cdiff < mindiff:
             mindiff = cdiff
             minoffset = offset
 
-        cdiff = np.abs(np.array(seg1[:e] - seg2[offset:cwl]))
+        cdiff = np.abs(seg1[:e] - seg2[offset:cwl])
         cdiff = np.sum(cdiff)/e
 
         if cdiff < mindiff:
@@ -123,10 +123,10 @@ PC_E_XY_WRAP            = range(PC_DIM_XY-PC_W_E_DIM_HALF, PC_DIM_XY) + range(PC
 PC_E_TH_WRAP            = range(PC_DIM_TH-PC_W_E_DIM_HALF, PC_DIM_TH) + range(PC_DIM_TH) + range(PC_W_E_DIM_HALF)
 PC_I_XY_WRAP            = range(PC_DIM_XY-PC_W_I_DIM_HALF, PC_DIM_XY) + range(PC_DIM_XY) + range(PC_W_I_DIM_HALF)
 PC_I_TH_WRAP            = range(PC_DIM_TH-PC_W_I_DIM_HALF, PC_DIM_TH) + range(PC_DIM_TH) + range(PC_W_I_DIM_HALF)            
-PC_XY_SUM_SIN_LOOKUP    = np.sin(np.multiply(np.array(range(1, PC_DIM_XY+1)), (2*np.pi)/PC_DIM_XY))
-PC_XY_SUM_COS_LOOKUP    = np.cos(np.multiply(np.array(range(1, PC_DIM_XY+1)), (2*np.pi)/PC_DIM_XY))
-PC_TH_SUM_SIN_LOOKUP    = np.sin(np.multiply(np.array(range(1, PC_DIM_TH+1)), (2*np.pi)/PC_DIM_TH))
-PC_TH_SUM_COS_LOOKUP    = np.cos(np.multiply(np.array(range(1, PC_DIM_TH+1)), (2*np.pi)/PC_DIM_TH))
+PC_XY_SUM_SIN_LOOKUP    = np.sin(np.multiply(range(1, PC_DIM_XY+1), (2*np.pi)/PC_DIM_XY))
+PC_XY_SUM_COS_LOOKUP    = np.cos(np.multiply(range(1, PC_DIM_XY+1), (2*np.pi)/PC_DIM_XY))
+PC_TH_SUM_SIN_LOOKUP    = np.sin(np.multiply(range(1, PC_DIM_TH+1), (2*np.pi)/PC_DIM_TH))
+PC_TH_SUM_COS_LOOKUP    = np.cos(np.multiply(range(1, PC_DIM_TH+1), (2*np.pi)/PC_DIM_TH))
 PC_CELLS_TO_AVG         = 3;
 PC_AVG_XY_WRAP          = range(PC_DIM_XY-PC_CELLS_TO_AVG, PC_DIM_XY) + range(PC_DIM_XY) + range(PC_CELLS_TO_AVG)
 PC_AVG_TH_WRAP          = range(PC_DIM_TH-PC_CELLS_TO_AVG, PC_DIM_TH) + range(PC_DIM_TH) + range(PC_CELLS_TO_AVG)
