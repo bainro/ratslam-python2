@@ -50,11 +50,6 @@ class PoseCells(object):
         indices = np.nonzero(self.cells)
 
         for i,j,k in itertools.izip(*indices):
-            print(123)
-            print(i+wdim)
-            print(i.shape)
-            print(321)
-            print(xywrap[int(i):int(i+wdim)])
             pca_new[real_np.ix_(xywrap[int(i):int(i+wdim)], 
                            xywrap[int(j):int(j+wdim)],
                            thwrap[int(k):int(k+wdim)])] += self.cells[i,j,k]*pcw
