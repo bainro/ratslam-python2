@@ -52,8 +52,8 @@ if __name__ == '__main__':
         slam.digest(img)
         # ==========================================================
 
-        # Plot each 2 frames
-        if loop%2 != 0:
+        # Plot each 50 frames
+        if loop%50 != 0:
             continue
 
         # PLOT THE CURRENT RESULTS =================================
