@@ -88,7 +88,7 @@ def compare_segments(seg1, seg2, slen):
     for offset in xrange(slen+1):
         e = (cwl-offset)
 
-        cdiff = np.abs(seg1[offset:cwl] - seg2[:e])
+        cdiff = np.abs(np.array(seg1[offset:cwl] - seg2[:e]))
         cdiff = np.sum(cdiff)/e
 
         if cdiff < mindiff:
