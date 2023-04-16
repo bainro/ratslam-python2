@@ -123,12 +123,12 @@ class ViewCells(object):
             self.activated_cells = self.cells[scores*template.size<VT_MATCH_THRESHOLD]
         # ----
 
-        if not self.size or np.min(scores)*template.size > VT_MATCH_THRESHOLD:
+        if not self.size or min(scores)*template.size > VT_MATCH_THRESHOLD:
             cell = self.create_cell(template, x_pc, y_pc, th_pc)
             self.prev_cell = cell
             return cell
 
-        i = np.argmin(scores)
+        i = min(range(len(scores)), key=lambda x : scores[x])
         cell = self.cells[i]
         cell.decay += VT_ACTIVE_DECAY
 
