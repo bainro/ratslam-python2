@@ -52,8 +52,8 @@ if __name__ == '__main__':
         slam.digest(img)
         # ==========================================================
 
-        # Plot each 500 frames
-        if loop%500 != 0:
+        # Plot each 2 frames
+        if loop%2 != 0:
             continue
 
         # PLOT THE CURRENT RESULTS =================================
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
         plot.tight_layout()
         # plot.savefig('C:\\Users\\Renato\\Desktop\\results\\forgif\\' + '%04d.jpg'%loop)
-        plot.pause(0.001)
+        plot.pause(0.1)
         # ==========================================================
 
     print 'DONE!'
