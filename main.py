@@ -25,7 +25,7 @@
 # =============================================================================
 
 import cv2
-import numpy as np
+import cupy as np
 from matplotlib import pyplot as plot
 import mpl_toolkits.mplot3d.axes3d as p3
 
