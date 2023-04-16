@@ -44,10 +44,6 @@ class VisualOdometry(object):
         '''
         x_sums = np.sum(subimg, 0)
         avint = np.sum(x_sums, dtype=np.float32)/x_sums.size
-        print "x_sums: "
-        print x_sums
-        print "avint: "
-        print avint
         return x_sums/avint
 
     def __call__(self, img):
@@ -57,15 +53,7 @@ class VisualOdometry(object):
         :return: the deslocation and rotation of the image from the previous 
                  frame as a 2D tuple of floats.
         '''
-        print "np.sum(img)"
-        print np.sum(img)
-        print "img.shape"
-        print img.shape
-        print "IMAGE_VTRANS_Y_RANGE, IMAGE_ODO_X_RANGE"
-        print IMAGE_VTRANS_Y_RANGE, IMAGE_ODO_X_RANGE
         subimg = img[IMAGE_VTRANS_Y_RANGE, IMAGE_ODO_X_RANGE]
-        print "np.sum(subimg)"
-        print np.sum(subimg)
         template = self._create_template(subimg)
 
         # VTRANS
