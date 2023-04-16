@@ -24,8 +24,7 @@
 # SOFTWARE.
 # =============================================================================
 
-import cupy as np
-import numpy as real_np
+import numpy as np
 import itertools
 from ratslam._globals import *
 
@@ -50,9 +49,9 @@ class PoseCells(object):
         indices = np.nonzero(self.cells)
 
         for i,j,k in itertools.izip(*indices):
-            pca_new[real_np.ix_(xywrap[int(i):int(i+wdim)], 
-                           xywrap[int(j):int(j+wdim)],
-                           thwrap[int(k):int(k+wdim)])] += self.cells[i,j,k]*pcw
+            pca_new[np.ix_(xywrap[i:i+wdim], 
+                           xywrap[j:j+wdim],
+                           thwrap[k:k+wdim])] += self.cells[i,j,k]*pcw
          
         return pca_new
 
@@ -65,14 +64,14 @@ class PoseCells(object):
         z_posecells = np.zeros([PC_DIM_XY, PC_DIM_XY, PC_DIM_TH]) 
       
         zval = self.cells[np.ix_(
-            xywrap[int(x):int(x+PC_CELLS_TO_AVG*2)], 
-            xywrap[int(y):int(y+PC_CELLS_TO_AVG*2)], 
-            thwrap[int(z):int(z+PC_CELLS_TO_AVG*2)]
+            xywrap[x:x+PC_CELLS_TO_AVG*2], 
+            xywrap[y:y+PC_CELLS_TO_AVG*2], 
+            thwrap[z:z+PC_CELLS_TO_AVG*2]
         )]
         z_posecells[np.ix_(
-            PC_AVG_XY_WRAP[int(x):int(x+PC_CELLS_TO_AVG*2)], 
-            PC_AVG_XY_WRAP[int(y):int(y+PC_CELLS_TO_AVG*2)], 
-            PC_AVG_TH_WRAP[int(z):int(z+PC_CELLS_TO_AVG*2)]
+            PC_AVG_XY_WRAP[x:x+PC_CELLS_TO_AVG*2], 
+            PC_AVG_XY_WRAP[y:y+PC_CELLS_TO_AVG*2], 
+            PC_AVG_TH_WRAP[z:z+PC_CELLS_TO_AVG*2]
         )] = zval
         
         # get the sums for each axis
@@ -232,4 +231,5 @@ class PoseCells(object):
         
         self.active = self.get_pc_max(PC_AVG_XY_WRAP, PC_AVG_TH_WRAP)
         return self.active
+    
     
